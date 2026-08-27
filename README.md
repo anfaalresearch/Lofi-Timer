@@ -1,63 +1,98 @@
-# Focus — Study Timer
+# 🎧 Focus — Study Timer
 
-A calm, privacy-first Pomodoro timer for focused study sessions. Create subjects, set a task, track completed focus time, and review your progress without creating an account.
+A calm, privacy-first study timer designed to help you stay focused and keep track of your study progress.
 
-## Features
+## ✨ Features
 
-- Custom focus and break durations, including quick presets
-- Subject-based focus tracking and a daily ranking
-- Daily and weekly goals, streaks, trends, and session history
-- Optional browser notifications and completion sound
-- Full-screen focus mode, light/dark themes, and keyboard shortcuts
-- CSV export for completed sessions
-- Persistent data stored locally in the browser
+- ⏱️ Focus timer with customizable durations
+- 📚 Create and manage subjects
+- 📝 Add tasks to study sessions
+- 🎯 Daily and weekly study goals
+- 🔥 Study streak tracking
+- 📊 Study statistics and trends
+- 📜 Session history
+- 📁 Export study data as CSV
+- 🔔 Browser notifications
+- 🔊 Session completion sound
+- 🖥️ Full-screen focus mode
+- 🌙 Light and dark themes
+- ⌨️ Keyboard shortcuts
+- 💾 Study data saved locally in your browser
 
-## Run locally
+## 🔒 Privacy First
 
-This is a plain HTML, CSS, and JavaScript project—no installation or build step is required.
+Your study data is stored locally in your browser.
 
-1. Clone or download the repository.
-2. Open `index.html` in a modern browser, or use VS Code's **Live Server** extension for auto-refresh while developing.
+There is no account system or external database required for the core app, and your study history stays on your device.
 
-## How to use
+## 🚀 Run Locally
 
-1. Add a subject.
-2. Optionally set the task you want to work on.
-3. Start a focus session and take a break when it completes.
-4. Check the Subjects, Stats, and History sections to review progress.
+Clone the repository:
 
-### Keyboard shortcuts
+    git clone https://github.com/anfaalresearch/Lofi-Timer.git
+
+Enter the project folder:
+
+    cd Lofi-Timer
+
+Then open `index.html` in your browser.
+
+## 🧠 How It Works
+
+1. Create a subject.
+2. Add a task you want to work on.
+3. Start your focus session.
+4. Complete your study session.
+5. Review your progress through the statistics and history sections.
+6. Export your study history as CSV when needed.
+
+## ⌨️ Keyboard Shortcuts
 
 | Shortcut | Action |
-| --- | --- |
-| `Space` | Start or pause the timer |
-| `R` | Reset the current timer |
+|----------|--------|
+| `Space` | Start / pause timer |
+| `R` | Reset timer |
 | `Esc` | Exit focus mode |
 
-## Project structure
+## 🗂️ Project Structure
 
-```text
-index.html             App structure and dialogs
-style.css              Responsive styles and themes
-script.js              Timer, persistence, statistics, and interactions
-manifest.webmanifest   Progressive web app metadata
-```
+    Lofi-Timer/
+    ├── index.html
+    ├── style.css
+    ├── script.js
+    ├── manifest.webmanifest
+    ├── LICENSE
+    └── .gitignore
 
-## Privacy
-
-Focus stores subjects, tasks, settings, and session history in your browser's local storage. Nothing is sent to a server.
-
-## Deploy with GitHub Pages
-
-After pushing this repository to GitHub:
-
-1. Open **Settings** → **Pages**.
-2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Select the `main` branch and the `/ (root)` folder.
-4. Save. GitHub will provide a public project URL once deployment finishes.
-
-## Built with
+## 🛠️ Built With
 
 - HTML
 - CSS
 - Vanilla JavaScript
+- Browser Local Storage
+- Progressive Web App manifest
+
+## 🌐 GitHub Pages
+
+The project can be deployed as a static website using GitHub Pages.
+
+Go to:
+
+**Settings → Pages → Deploy from a branch**
+
+Then select:
+
+**Branch:** `main`  
+**Folder:** `/ (root)`
+
+## 🎯 Goal
+
+Focus is built around a simple idea:
+
+**Focus → Track → Reflect → Improve**
+
+Instead of being only a timer, the project gives you a way to keep track of your study sessions and see your progress over time.
+
+## 📄 License
+
+This project is licensed under the MIT License.
