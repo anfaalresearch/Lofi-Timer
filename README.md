@@ -61,7 +61,3 @@ After pushing this repository to GitHub:
 - HTML
 - CSS
 - Vanilla JavaScript
-
-## License
-
-No license has been selected yet. Add an MIT license if you want others to be able to reuse and modify this project.
