@@ -1,0 +1,1134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#09090a" />
+  <meta name="description" content="Focus — a calm study timer." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <title>Focus — Study Timer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="app-shell">
+
+    <header class="topbar">
+
+      <a class="brand" href="#timerSection">
+        <span class="brand-mark">F</span>
+
+        <span class="brand-copy">
+          <strong>FOCUS</strong>
+          <small>study mode</small>
+        </span>
+      </a>
+
+      <nav class="section-nav" aria-label="Sections">
+        <button class="nav-link active" data-target="timerSection" type="button">Timer</button>
+        <button class="nav-link" data-target="subjectsSection" type="button">Subjects</button>
+        <button class="nav-link" data-target="statsSection" type="button">Stats</button>
+        <button class="nav-link" data-target="historySection" type="button">History</button>
+      </nav>
+
+      <div class="top-actions">
+
+        <button
+          class="icon-btn"
+          id="focusModeBtn"
+          type="button"
+          title="Focus mode"
+          aria-label="Enter focus mode"
+        >
+          ⛶
+        </button>
+
+        <button
+          class="icon-btn"
+          id="themeBtn"
+          type="button"
+          title="Theme"
+          aria-label="Toggle light and dark theme"
+        >
+          ☾
+        </button>
+
+        <button
+          class="icon-btn"
+          id="timerSettingsBtn"
+          type="button"
+          title="Timer settings"
+          aria-label="Open timer settings"
+        >
+          ⌚
+        </button>
+
+      </div>
+
+    </header>
+
+
+    <main>
+
+      <!-- TIMER -->
+
+      <section
+        id="timerSection"
+        class="section-anchor"
+      >
+
+        <div class="main-grid">
+
+          <article class="card focus-card">
+
+            <div class="card-topline">
+
+              <span class="eyebrow">
+                CURRENT SESSION
+              </span>
+
+              <button
+                class="mode-pill"
+                id="modeBtn"
+                type="button"
+              >
+                FOCUS
+              </button>
+
+            </div>
+
+
+            <div class="session-heading">
+
+              <div>
+
+                <h1 id="subjectTitle">
+                  Choose a subject
+                </h1>
+
+                <p id="taskTitle">
+                  Add a task, then start when you are ready.
+                </p>
+
+              </div>
+
+              <span
+                id="sessionCount"
+                class="session-number"
+              >
+                Session 01
+              </span>
+
+            </div>
+
+
+            <div class="timer-wrap">
+
+              <div
+                id="timerRing"
+                class="timer-ring"
+              >
+
+                <div class="timer-core">
+
+                  <div
+                    id="timerDisplay"
+                    class="timer-value"
+                  >
+                    25:00
+                  </div>
+
+                  <div
+                    id="timerLabel"
+                    class="timer-label"
+                  >
+                    SELECT A SUBJECT
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+            <div class="current-session-meta">
+
+              <span id="currentSessionElapsed">
+                0m this session
+              </span>
+
+              <span id="currentSessionSaved">
+                Not saved until complete
+              </span>
+
+            </div>
+
+
+            <div class="timer-controls">
+
+              <button
+                class="primary-btn"
+                id="startBtn"
+                type="button"
+                disabled
+              >
+                Start focus
+              </button>
+
+              <button
+                class="secondary-btn"
+                id="pauseBtn"
+                type="button"
+                disabled
+              >
+                Pause
+              </button>
+
+              <button
+                class="ghost-btn"
+                id="resetTimerBtn"
+                type="button"
+              >
+                Reset timer
+              </button>
+
+            </div>
+
+
+            <div class="shortcut-hint">
+              <kbd>Space</kbd>
+              start / pause
+              <kbd>R</kbd>
+              reset timer
+            </div>
+
+          </article>
+
+
+          <aside class="side-column">
+
+            <!-- TODAY -->
+
+            <article class="card side-card">
+
+              <div class="split-row">
+
+                <span class="eyebrow">
+                  TODAY
+                </span>
+
+                <span
+                  id="streakValue"
+                  class="pill"
+                >
+                  0 day streak
+                </span>
+
+              </div>
+
+
+              <div
+                id="todayMinutes"
+                class="today-number"
+              >
+                0m
+              </div>
+
+              <div class="muted">
+                completed focus today
+              </div>
+
+
+              <div class="progress-track">
+                <div
+                  id="goalFill"
+                  class="progress-fill"
+                ></div>
+              </div>
+
+
+              <div class="split-row small-row">
+
+                <span id="goalProgress">
+                  0 / 120 min
+                </span>
+
+                <button
+                  class="text-btn"
+                  id="goalBtn"
+                  type="button"
+                >
+                  Set goal
+                </button>
+
+              </div>
+
+
+              <button
+                class="reset-link"
+                id="resetTodayBtn"
+                type="button"
+              >
+                Reset today
+              </button>
+
+            </article>
+
+
+            <!-- NEXT -->
+
+            <article class="card side-card">
+
+              <div class="split-row">
+
+                <h2>
+                  Next up
+                </h2>
+
+                <button
+                  class="text-btn"
+                  id="clearTaskBtn"
+                  type="button"
+                >
+                  Clear
+                </button>
+
+              </div>
+
+
+              <input
+                id="taskInput"
+                class="line-input"
+                type="text"
+                placeholder="What are you working on?"
+                autocomplete="off"
+              />
+
+
+              <button
+                class="wide-btn"
+                id="saveTaskBtn"
+                type="button"
+              >
+                Use for next session
+              </button>
+
+            </article>
+
+
+            <!-- TASKS -->
+
+            <article class="card side-card">
+
+              <div class="split-row">
+
+                <h2>
+                  Tasks
+                </h2>
+
+                <span
+                  id="taskCount"
+                  class="pill"
+                >
+                  0
+                </span>
+
+              </div>
+
+
+              <div class="task-input-row">
+
+                <input
+                  id="newTaskInput"
+                  class="line-input"
+                  type="text"
+                  placeholder="Add a task..."
+                  autocomplete="off"
+                />
+
+                <button
+                  class="add-btn"
+                  id="addTaskBtn"
+                  type="button"
+                >
+                  +
+                </button>
+
+              </div>
+
+
+              <div
+                id="taskList"
+                class="task-list"
+              ></div>
+
+
+              <button
+                class="reset-link"
+                id="clearTasksBtn"
+                type="button"
+              >
+                Clear tasks
+              </button>
+
+            </article>
+
+          </aside>
+
+        </div>
+
+      </section>
+
+
+      <!-- SUBJECTS -->
+
+      <section
+        id="subjectsSection"
+        class="section-block section-anchor"
+      >
+
+        <div class="section-heading">
+
+          <div>
+
+            <span class="eyebrow">
+              YOUR SPACE
+            </span>
+
+            <h2>
+              Subjects
+            </h2>
+
+            <p class="muted section-description">
+              Your subjects stay here. Focus time is tracked separately for each one.
+            </p>
+
+          </div>
+
+
+          <button
+            class="accent-btn"
+            id="addSubjectBtn"
+            type="button"
+          >
+            + Add subject
+          </button>
+
+        </div>
+
+
+        <div class="subjects-layout">
+
+          <article class="card subjects-card">
+
+            <div class="split-row">
+
+              <h3>
+                Your subjects
+              </h3>
+
+              <span
+                class="pill"
+                id="subjectCount"
+              >
+                0
+              </span>
+
+            </div>
+
+
+            <div
+              id="subjectList"
+              class="subject-list"
+            ></div>
+
+
+            <div
+              id="subjectEmpty"
+              class="empty-state"
+            >
+              Add your first subject to begin.
+            </div>
+
+          </article>
+
+
+          <article class="card ranking-card">
+
+            <div class="split-row">
+
+              <div>
+
+                <span class="eyebrow">
+                  TODAY'S RANKING
+                </span>
+
+                <h3
+                  id="topSubjectName"
+                  class="ranking-title"
+                >
+                  No focus yet
+                </h3>
+
+              </div>
+
+              <strong
+                id="topSubjectTime"
+                class="ranking-total"
+              ></strong>
+
+            </div>
+
+
+            <div
+              id="rankingBars"
+              class="ranking-bars"
+            ></div>
+
+          </article>
+
+        </div>
+
+      </section>
+
+
+      <!-- STATS -->
+
+      <section
+        id="statsSection"
+        class="section-block section-anchor"
+      >
+
+        <div class="section-heading compact">
+
+          <div>
+
+            <span class="eyebrow">
+              PROGRESS
+            </span>
+
+            <h2>
+              Stats
+            </h2>
+
+          </div>
+
+
+          <div class="section-actions">
+
+            <button
+              class="small-action"
+              id="weekGoalBtn"
+              type="button"
+            >
+              Weekly goal
+            </button>
+
+            <button
+              class="reset-link standalone"
+              id="resetStatsBtn"
+              type="button"
+            >
+              Reset stats
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="stats-grid">
+
+          <article class="card stat-card">
+            <span class="eyebrow">STREAK</span>
+            <strong id="streakStat">0</strong>
+            <span class="muted">days</span>
+          </article>
+
+          <article class="card stat-card">
+            <span class="eyebrow">SESSIONS</span>
+            <strong id="sessionsStat">0</strong>
+            <span class="muted">completed</span>
+          </article>
+
+          <article class="card stat-card">
+            <span class="eyebrow">FOCUS</span>
+            <strong id="minutesStat">0m</strong>
+            <span class="muted">minutes total</span>
+          </article>
+
+          <article class="card stat-card">
+            <span class="eyebrow">BEST DAY</span>
+            <strong id="bestDayStat">0m</strong>
+            <span class="muted">focused</span>
+          </article>
+
+        </div>
+
+
+        <div class="insight-grid">
+
+          <article class="card insight-card">
+            <span class="eyebrow">THIS WEEK</span>
+            <strong id="weekTotal">0m</strong>
+            <span class="muted">focused</span>
+          </article>
+
+          <article class="card insight-card">
+            <span class="eyebrow">THIS MONTH</span>
+            <strong id="monthTotal">0m</strong>
+            <span class="muted">focused</span>
+          </article>
+
+          <article class="card insight-card">
+            <span class="eyebrow">WEEK GOAL</span>
+            <strong id="weekGoalText">0 / 600m</strong>
+            <div class="week-goal-bar">
+              <div id="weekGoalFill" class="week-goal-fill" style="width:0%"></div>
+            </div>
+            <span
+              class="muted"
+              id="weekGoalPercent"
+            >
+              0%
+            </span>
+          </article>
+
+        </div>
+
+
+        <article class="card chart-card">
+
+          <div class="chart-header">
+
+            <div>
+
+              <span
+                id="trendEyebrow"
+                class="eyebrow"
+              >
+                THIS WEEK
+              </span>
+
+              <h3 id="trendTitle">
+                Focus trend
+              </h3>
+
+            </div>
+
+
+            <div class="chart-switch">
+
+              <button
+                class="range-btn active"
+                data-range="week"
+                type="button"
+              >
+                Week
+              </button>
+
+              <button
+                class="range-btn"
+                data-range="month"
+                type="button"
+              >
+                Month
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <div
+            id="trendChart"
+            class="trend-chart"
+          ></div>
+
+        </article>
+
+      </section>
+
+
+      <!-- HISTORY -->
+
+      <section
+        id="historySection"
+        class="section-block section-anchor"
+      >
+
+        <div class="section-heading compact">
+
+          <div>
+
+            <span class="eyebrow">
+              RECORD
+            </span>
+
+            <h2>
+              Recent sessions
+            </h2>
+
+            <p class="muted section-description">
+              Your latest 10 completed focus sessions.
+            </p>
+
+          </div>
+
+
+          <div class="history-actions">
+
+            <button
+              class="small-action"
+              id="exportCsvBtn"
+              type="button"
+            >
+              Export CSV
+            </button>
+
+            <button
+              class="reset-link standalone"
+              id="clearHistoryBtn"
+              type="button"
+            >
+              Clear history
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <article
+          id="historyList"
+          class="card history-card"
+        ></article>
+
+      </section>
+
+    </main>
+
+
+    <footer class="footer">
+      A calmer interface for doing the work.
+    </footer>
+
+  </div>
+
+
+  <!-- FOCUS MODE -->
+
+  <div
+    id="focusModeOverlay"
+    class="focus-overlay"
+    hidden
+  >
+
+    <button
+      class="focus-exit"
+      id="exitFocusModeBtn"
+      type="button"
+    >
+      Exit focus
+    </button>
+
+    <div class="focus-overlay-inner">
+
+      <div
+        id="focusOverlaySubject"
+        class="focus-overlay-subject"
+      >
+        Focus
+      </div>
+
+      <div
+        id="focusOverlayTask"
+        class="focus-overlay-task"
+      >
+        Deep work
+      </div>
+
+      <div
+        id="focusOverlayTime"
+        class="focus-overlay-time"
+      >
+        25:00
+      </div>
+
+      <div
+        id="focusOverlayLabel"
+        class="focus-overlay-label"
+      >
+        READY TO FOCUS
+      </div>
+
+      <div class="focus-progress">
+
+        <div
+          id="focusOverlayProgress"
+          class="focus-progress-fill"
+        ></div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- SUBJECT DIALOG -->
+
+  <dialog id="subjectDialog">
+
+    <form
+      id="subjectForm"
+      method="dialog"
+      class="dialog-card"
+    >
+
+      <div class="split-row">
+
+        <div>
+
+          <span class="eyebrow">
+            NEW SUBJECT
+          </span>
+
+          <h2>
+            Add a subject
+          </h2>
+
+        </div>
+
+        <button
+          class="icon-btn"
+          value="cancel"
+          type="submit"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <input
+        id="subjectNameInput"
+        class="line-input dialog-input"
+        type="text"
+        placeholder="Physics, Maths, Chemistry..."
+        autocomplete="off"
+      />
+
+
+      <button
+        id="saveSubjectBtn"
+        class="wide-btn dialog-submit"
+        type="submit"
+      >
+        Add subject
+      </button>
+
+    </form>
+
+  </dialog>
+
+
+  <!-- DAILY GOAL -->
+
+  <dialog id="goalDialog">
+
+    <form
+      id="goalForm"
+      method="dialog"
+      class="dialog-card"
+    >
+
+      <div class="split-row">
+
+        <div>
+
+          <span class="eyebrow">
+            DAILY TARGET
+          </span>
+
+          <h2>
+            Set focus goal
+          </h2>
+
+        </div>
+
+        <button
+          class="icon-btn"
+          value="cancel"
+          type="submit"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <input
+        id="goalInput"
+        class="line-input dialog-input"
+        type="number"
+        min="15"
+        max="720"
+        step="15"
+        value="120"
+      />
+
+
+      <button
+        id="saveGoalBtn"
+        class="wide-btn dialog-submit"
+        type="submit"
+      >
+        Save goal
+      </button>
+
+    </form>
+
+  </dialog>
+
+
+  <!-- WEEKLY GOAL -->
+
+  <dialog id="weekGoalDialog">
+
+    <form
+      id="weekGoalForm"
+      method="dialog"
+      class="dialog-card"
+    >
+
+      <div class="split-row">
+
+        <div>
+
+          <span class="eyebrow">
+            WEEKLY TARGET
+          </span>
+
+          <h2>
+            Set weekly goal
+          </h2>
+
+        </div>
+
+        <button
+          class="icon-btn"
+          value="cancel"
+          type="submit"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <input
+        id="weekGoalInput"
+        class="line-input dialog-input"
+        type="number"
+        min="30"
+        max="5000"
+        step="30"
+        value="600"
+      />
+
+
+      <button
+        id="saveWeekGoalBtn"
+        class="wide-btn dialog-submit"
+        type="submit"
+      >
+        Save goal
+      </button>
+
+    </form>
+
+  </dialog>
+
+
+  <!-- TIMER SETTINGS -->
+
+  <dialog id="timerDialog">
+
+    <form
+      id="timerForm"
+      method="dialog"
+      class="dialog-card"
+    >
+
+      <div class="split-row">
+
+        <div>
+
+          <span class="eyebrow">
+            TIMER
+          </span>
+
+          <h2>
+            Timer settings
+          </h2>
+
+        </div>
+
+        <button
+          class="icon-btn"
+          value="cancel"
+          type="submit"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div class="preset-grid">
+
+        <button
+          class="preset-btn"
+          data-work="5"
+          data-break="3"
+          type="button"
+        >
+          5 / 3
+        </button>
+
+        <button
+          class="preset-btn"
+          data-work="25"
+          data-break="5"
+          type="button"
+        >
+          25 / 5
+        </button>
+
+        <button
+          class="preset-btn"
+          data-work="50"
+          data-break="10"
+          type="button"
+        >
+          50 / 10
+        </button>
+
+      </div>
+
+
+      <div class="timer-setting-grid">
+
+        <label>
+          Focus
+
+          <input
+            id="workInput"
+            class="line-input"
+            type="number"
+            min="1"
+            max="180"
+            value="25"
+          />
+
+        </label>
+
+
+        <label>
+          Break
+
+          <input
+            id="breakInput"
+            class="line-input"
+            type="number"
+            min="1"
+            max="60"
+            value="5"
+          />
+
+        </label>
+
+      </div>
+
+
+      <button
+        id="saveTimerBtn"
+        class="wide-btn dialog-submit"
+        type="submit"
+      >
+        Save timer
+      </button>
+
+    </form>
+
+  </dialog>
+
+
+  <!-- NOTIFICATIONS -->
+
+  <dialog id="notificationDialog">
+
+    <form
+      method="dialog"
+      class="dialog-card"
+    >
+
+      <div class="split-row">
+
+        <div>
+
+          <span class="eyebrow">
+            OPTIONAL
+          </span>
+
+          <h2>
+            Enable notifications?
+          </h2>
+
+        </div>
+
+        <button
+          class="icon-btn"
+          value="cancel"
+          type="submit"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <p class="dialog-copy">
+        Get a browser notification when a focus session or break ends.
+      </p>
+
+
+      <button
+        id="enableNotificationsBtn"
+        class="wide-btn dialog-submit"
+        type="button"
+      >
+        Enable notifications
+      </button>
+
+    </form>
+
+  </dialog>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>

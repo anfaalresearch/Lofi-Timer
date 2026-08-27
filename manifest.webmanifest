@@ -1,0 +1,9 @@
+{
+  "name": "Focus — Study Timer",
+  "short_name": "Focus",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#09090a",
+  "theme_color": "#09090a",
+  "description": "A calm study timer with subjects, goals, trends and history."
+}
