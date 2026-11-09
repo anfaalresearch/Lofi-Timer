@@ -1,5 +1,9 @@
 # 🎧 Focus — Study Timer
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Visit%20Website-success?style=for-the-badge&logo=githubpages&logoColor=white)](https://anfaalresearch.github.io/Lofi-Timer/)
+
+> **🌐 Live Website:** [https://anfaalresearch.github.io/Lofi-Timer/](https://anfaalresearch.github.io/Lofi-Timer/)
+
 A calm, privacy-first study timer designed to help you stay focused and keep track of your study progress.
 
 ## ✨ Features
@@ -72,18 +76,17 @@ Then open `index.html` in your browser.
 - Browser Local Storage
 - Progressive Web App manifest
 
-## 🌐 GitHub Pages
+## 🌐 Live Website (GitHub Pages)
 
-The project can be deployed as a static website using GitHub Pages.
+The project is hosted live on GitHub Pages:
 
-Go to:
+🔗 **[https://anfaalresearch.github.io/Lofi-Timer/](https://anfaalresearch.github.io/Lofi-Timer/)**
 
-**Settings → Pages → Deploy from a branch**
+To deploy your own fork:
 
-Then select:
-
-**Branch:** `main`  
-**Folder:** `/ (root)`
+1. Go to **Settings → Pages**
+2. Under **Build and deployment > Source**, select **Deploy from a branch**
+3. Choose Branch: `main`, Folder: `/ (root)`, and click **Save**
 
 ## 🎯 Goal
 
